@@ -7,9 +7,10 @@ from rich.table import Table
 table = Table(title="Tabela de Preços", style="Red", width=40)
 
 # Posso tranquilamente misturar as libs e estilizar como quiser
-table.add_column("[cyan]Nome[/]", style='blue')
-table.add_column("[green]Preço[/]", style='yellow')
+table.add_column("[cyan]Nome[/]", style='blue', justify='center')
+table.add_column("[green]Preço[/]", style='yellow', justify='right')
 
+# 'justify' não funciona em linhs, elas seguem o justify da coluna 
 table.add_row("Caneta", "R$ 1.50")
 table.add_row("Corretivo", "R$ 7.00")
 
