@@ -11,8 +11,9 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS contas_bancarias (
                 )""")
 
 cursor.execute("""
-INSERT INTO contas_bancarias (titular, saldo, cpf)
-VALUES ('Miguel', 450, '45678912365')
+UPDATE contas_bancarias
+SET saldo = 400
+WHERE id = 1
 """)
 
 conexao.commit()
