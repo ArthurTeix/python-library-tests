@@ -22,6 +22,9 @@ class Botao():
         self.clicado = False # controlador de cliques, para ser clicado apenas uma vez cada botão
 
     def desenhar_botao(self):
+        # variável que vai definir as ações de cada botão
+        action = False
+
         # pegar posição do mouse
         pos = pygame.mouse.get_pos()
 
@@ -29,14 +32,15 @@ class Botao():
         if (self.rect.collidepoint(pos)):
             if (pygame.mouse.get_pressed()[0] == 1) and (self.clicado == False):
                 self.clicado = True
-                print("clicado")
+                action = True
 
         if (pygame.mouse.get_pressed()[0] == 0):
             self.clicado = False
 
-
         # desenha botao na tela
         tela.blit(self.image, (self.rect.x, self.rect.y)) # criação dos retang
+
+        return action
 
 
 # instancias de botoes
@@ -48,8 +52,12 @@ while run:
 
     # desenhar botoes
     tela.fill((202, 228, 241))
-    start_button.desenhar_botao()
-    exit_button.desenhar_botao()
+
+    if start_button.desenhar_botao():
+        print('START')
+
+    if exit_button.desenhar_botao():
+        run = False
 
     for event in pygame.event.get():
         if (event.type == pygame.QUIT):
