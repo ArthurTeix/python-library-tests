@@ -11,9 +11,8 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS contas_bancarias (
                 )""")
 
 cursor.execute("""
-UPDATE contas_bancarias
-SET saldo = 400
-WHERE id = 1
+DELETE FROM contas_bancarias
+WHERE id = 2
 """)
 
 conexao.commit()
