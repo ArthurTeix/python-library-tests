@@ -31,6 +31,9 @@ class Botao():
                 self.clicado = True
                 print("clicado")
 
+        if (pygame.mouse.get_pressed()[0] == 0):
+            self.clicado = False
+
 
         # desenha botao na tela
         tela.blit(self.image, (self.rect.x, self.rect.y)) # criação dos retang
