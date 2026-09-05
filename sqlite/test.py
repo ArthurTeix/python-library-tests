@@ -9,3 +9,10 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS contas_bancarias (
                 saldo FLOAT NOT NULL,
                 cpf TEXT NOT NULL UNIQUE
                 )""")
+
+cursor.execute("""
+INSERT INTO contas_bancarias (titular, saldo, cpf)
+VALUES ('Arthur', 100, '15975364525')
+""")
+
+conexao.commit()
