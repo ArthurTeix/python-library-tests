@@ -6,6 +6,15 @@ altura_tela = 500
 tela = pygame.display.set_mode((largura_tela, altura_tela))
 pygame.display.set_caption("Botões")
 
+# imagens dos botoes
+start_img = pygame.image.load('start_btn.png').convert_alpha()
+exit_img = pygame.image.load('exit_btn.png').convert_alpha()
+
+# classe dos botoes
+class Botoes():
+    def __init__(self, x, y): # apenas coordenadas para saber onde vai o botao
+        
+
 run = True
 while run:
     for event in pygame.event.get():
