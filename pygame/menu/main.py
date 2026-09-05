@@ -5,6 +5,7 @@ pygame.init()
 
 # variaveis do jogo
 jogo_pausado = False
+menu_estado = 'main'
 
 # definir fonte
 fonte = pygame.font.SysFont("arialblack", 40) # difinição de fonte e tamanho
@@ -41,12 +42,27 @@ while run:
 
     # checando se jogo ta pausado
     if jogo_pausado:
-        if resume_botao.desenhar_botao():
-            jogo_pausado = False
-        if options_botao.desenhar_botao():
-            pass
-        if quit_botao.desenhar_botao():
-            run = False
+        # checando estado do menu
+        if (menu_estado == "main"):
+            # botoes da tela de pausa
+            if resume_botao.desenhar_botao():
+                jogo_pausado = False
+            if options_botao.desenhar_botao():
+                menu_estado = 'options'
+            if quit_botao.desenhar_botao():
+                run = False
+
+        # checagem se o menu de opcoes ta aberto
+        if (menu_estado == 'options'):
+            # desenhe as opções
+            if video_botao.desenhar_botao():
+                print("Configuracoes de Video")
+            if audio_botao.desenhar_botao():
+                print("Configuracoes de Audio")
+            if keys_botao.desenhar_botao():
+                print("Configuracoes de Keys")
+            if back_botao.desenhar_botao():
+                menu_estado = 'main'
 
     else:
         desenha_texto("Aperte Espaço Para Pausar", fonte, TEXTO_COR, 90, 250)
