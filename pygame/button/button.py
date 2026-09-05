@@ -12,8 +12,16 @@ exit_img = pygame.image.load('exit_btn.png').convert_alpha()
 
 # classe dos botoes
 class Botoes():
-    def __init__(self, x, y): # apenas coordenadas para saber onde vai o botao
-        
+    def __init__(self, x, y, image): 
+        # apenas coordenadas para saber onde vai o botao e sua imagem
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.topleft = (x, y)
+
+    def desenhar_botao(self):
+        # desenha botao na tela
+        tela.blit(self.image, (self.rect.x, self.rect.y)) # criação dos retang
+
 
 run = True
 while run:
