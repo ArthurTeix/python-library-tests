@@ -21,6 +21,13 @@ class Botao():
         self.rect.topleft = (x, y)
 
     def desenhar_botao(self):
+        # pegar posição do mouse
+        pos = pygame.mouse.get_pos()
+
+        # checando mouse hover e clique
+        if (self.rect.collidepoint(pos)):
+            print('HOVER')
+
         # desenha botao na tela
         tela.blit(self.image, (self.rect.x, self.rect.y)) # criação dos retang
 
