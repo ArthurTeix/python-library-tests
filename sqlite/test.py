@@ -12,7 +12,7 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS contas_bancarias (
 
 cursor.execute("""
 INSERT INTO contas_bancarias (titular, saldo, cpf)
-VALUES ('Arthur', 100, '15975364525')
+VALUES ('Miguel', 450, '45678912365')
 """)
 
 conexao.commit()
